@@ -1,0 +1,1 @@
+30 2 * * 1 root /opt/letsencrypt/letsencrypt-auto renew >> /var/log/le-renew.log
