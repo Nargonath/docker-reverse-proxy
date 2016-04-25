@@ -47,10 +47,12 @@ RUN git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt
 COPY letsencrypt-cron /etc/cron.d/
 
 # create volume for let's encrypt
-VOLUME /opt/letsencrypt
+# not needed because I use the -v run flag that does the mount and mapping itself
+#VOLUME /opt/letsencrypt
 
 # exposing port for HTTP and HTTPS
-EXPOSE 80 443
+# pretty much the same reason as VOLUME, -p does the port mapping/binding itself
+#EXPOSE 80 443
 
 # start apache
 CMD ["/usr/sbin/apache2ctl", "-DFOREGROUND"]
