@@ -14,8 +14,8 @@ The PRIVATE_PORT is the port of the container you wish to proxy the HTTP to on t
 
 Once you have built the image, you need to run it with :
 
-`docker run -d --name myName -p 80:80 -p 443:443 -v /opt/letsencrypt:/opt/letsencrypt /nargonath/apache-reverse-proxy`
+`docker run -d --name myName -p 80:80 -p 443:443 -v /opt/letsencrypt /nargonath/apache-reverse-proxy`
 
-The `/opt/letsencrypt` volume will be used to for the SSL certificate, so you can access them from the your host machine.
+The `/opt/letsencrypt` volume will be used to for the SSL certificate, so you can access them from your host machine. You don't want to specify a host mounting point with the `-v` flag because docker will hide the content of that particular folder otherwise to prevent replacing them.
 
 The image is present on Docker Hub as well: [https://hub.docker.com/r/nargonath/apache-reverse-proxy/](https://hub.docker.com/r/nargonath/apache-reverse-proxy/)
