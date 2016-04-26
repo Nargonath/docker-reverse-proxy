@@ -26,10 +26,10 @@ Once you have built the image, you need to run it with :
 docker run -d --name myName \
             -p 80:80 \
             -p 443:443 \
-            -v /opt/letsencrypt \
+            -v letsencrypt:/opt/letsencrypt \
             /nargonath/apache-reverse-proxy
 ```
 
-The `/opt/letsencrypt` volume will be used to for the SSL certificate, so you can access them from your host machine. You don't want to specify a host mounting point with the `-v` flag because docker will hide the content of that particular folder otherwise to prevent replacing them.
+The `-v` flag will create a named volume `letsencrypt` which will be initialized with the content of the letsencrypt git repo. It will be used to store the letsencrypt installation which will contain the SSL certificate. You will be able to share that volume between containers and you will be able to access it from your host machine. You don't want to specify a host mounting point with the `-v` flag because docker will hide the content of that particular folder otherwise to prevent replacing them.
 
 The image is present on Docker Hub as well: [https://hub.docker.com/r/nargonath/apache-reverse-proxy/](https://hub.docker.com/r/nargonath/apache-reverse-proxy/)
